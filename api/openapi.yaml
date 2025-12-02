@@ -1,0 +1,31 @@
+openapi: 3.0.3
+info:
+  title: Notes API
+  version: 1.0.0
+  description: REST API для управления заметками
+servers:
+  - url: https://api.example.com/v1
+paths:
+  /notes:
+    get:
+      summary: Список заметок
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Note'
+components:
+  schemas:
+    Note:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        content:
+          type: string
